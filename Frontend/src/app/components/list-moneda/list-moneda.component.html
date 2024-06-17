@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Transacciones</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="mb-3">Historial de Transacciones</h1>
+            <button type="button" class="btn btn-primary mb-3" (click)="obtenerTransacciones()">Recuperar el historial de transacciones</button>
+            <div class="input-group justify-content-center mb-3">
+                <input type="text" class="form-control me-2" placeholder="Moneda Origen" #monedaOrigen>
+                <input type="text" class="form-control me-2" placeholder="Moneda Destino" #monedaDestino>
+                <button type="button" class="btn btn-primary" (click)="ObtenerTransaccionesMoneda(monedaOrigen.value, monedaDestino.value)">Recuperar historial por monedas</button>
+            </div>
+        </div>
+        <h3 class="text-center mb-4">Transacciones</h3>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let t of transacciones">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center">Transacción: {{ t._id }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Moneda de Origen: {{ t.monedaOrigen }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Moneda de Destino: {{ t.monedaDestino }}</h6>
+                        <p class="card-text">Cantidad de Origen: {{ t.cantidadOrigen }}</p>
+                        <p class="card-text">Cantidad de Destino: {{ t.cantidadDestino }}</p>
+                        <p class="card-text">Email del Cliente: {{ t.emailCliente }}</p>
+                        <p class="card-text">Tasa de Conversión: {{ t.tasaConversion }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

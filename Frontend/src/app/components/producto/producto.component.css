@@ -1,0 +1,23 @@
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.card-subtitle {
+    font-size: 0.875rem;
+}
+.card-text {
+    font-size: 0.875rem;
+}
+.btn-primary, .btn-success {
+    width: 100%;
+}

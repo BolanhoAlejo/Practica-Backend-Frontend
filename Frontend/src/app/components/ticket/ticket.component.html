@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Tickets</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="mb-3">Registro de Tickets</h1>
+            <div class="d-flex justify-content-center mb-3">
+                <button type="button" class="btn btn-primary me-2" (click)="ObtenerTickets()">Obtener Tickets</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/ticketform'">Generar o Actualizar un ticket</button>
+            </div>
+            <div class="input-group mb-3 w-50 mx-auto">
+                <input type="text" class="form-control" placeholder="Categoria" #categoria>
+                <button type="button" class="btn btn-primary" (click)="ObtenerTicketsPorCategoria(categoria.value)">Obtener Tickets Por Categoria</button>
+            </div>
+        </div>
+        <h3 class="text-center mb-4">Tickets</h3>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let t of tickets">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title mt-3">{{ t.espectador.nombre }} {{ t.espectador.apellido }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">DNI: {{ t.espectador.dni }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Email: {{ t.espectador.email }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Fecha de Compra: {{ t.fechaCompra }}</h6>
+                        <p class="card-text">Categoría Espectador: {{ t.categoriaEspectador }}</p>
+                        <p class="card-text">Precio Ticket: ${{ t.precioTicket }}</p>
+                        <div class="mt-auto">
+                            <button type="button" class="btn btn-danger" (click)="EliminarTickets(t._id)">Eliminar Ticket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

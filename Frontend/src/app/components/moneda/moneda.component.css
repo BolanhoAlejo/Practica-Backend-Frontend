@@ -1,0 +1,10 @@
+.form-group label {
+    font-weight: bold;
+}
+.btn-primary, .btn-secondary {
+    width: 100%;
+}
+.modal-body p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}

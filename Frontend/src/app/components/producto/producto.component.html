@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Destacados</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="mb-3">Productos Destacados</h1>
+            <div class="d-flex justify-content-center mb-3">
+                <button type="button" class="btn btn-primary me-2" (click)="obtenerProductosDestacados()">Obtener Productos Destacados</button>
+                <button type="button" class="btn btn-success" onclick="location.href='/productosForm'">Registrar un nuevo Producto</button>
+            </div>
+        </div>
+        <h3 class="text-center mb-4">Productos Destacados</h3>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let p of productos">
+                <div class="card h-100 shadow-sm">
+                    <img [src]="p.imagen" class="card-img-top" alt="Imagen del producto">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ p.nombre }}</h5> 
+                        <h6 class="card-subtitle mb-2 text-muted">{{ p.descripcion }}</h6>
+                        <p class="card-text">Precio: ${{ p.precio }}</p>
+                        <p class="card-text">Stock: {{ p.stock }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformador de Moneda</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Transformador de Moneda</h2>
+
+        <form class="mb-4">
+            <div class="form-group mb-3">
+                <label for="cantidad">Ingresar Cantidad:</label>
+                <input type="text" id="cantidad" name="cantidad" class="form-control" [(ngModel)]="transaccion.cantidadOrigen">
+            </div>
+            <div class="form-group mb-3">
+                <label for="monedaOrigen">Ingresar De Moneda:</label>
+                <input type="text" id="monedaOrigen" name="monedaOrigen" class="form-control" [(ngModel)]="transaccion.monedaOrigen">
+            </div>
+            <div class="form-group mb-3">
+                <label for="monedaDestino">Ingresar a Moneda:</label>
+                <input type="text" id="monedaDestino" name="monedaDestino" class="form-control" [(ngModel)]="transaccion.monedaDestino">
+            </div>
+            <button type="button" id="buscar" class="btn btn-primary" (click)="ObtenerCambio()" data-bs-toggle="modal" data-bs-target="#ModalMoneda">Validar</button>
+        </form>
+        
+        <button type="button" class="btn btn-secondary mb-4" onclick="location.href='/transacciones'">Ver Historial de Transacciones</button>
+
+        <div class="modal fade" id="ModalMoneda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Resultado:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Cambio: {{ resultados.result }}</p>
+
+                        <form class="mb-4">
+                            <p>Completar formulario</p>
+                            <div class="form-group mb-3">
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" class="form-control" [(ngModel)]="transaccion.emailCliente">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="tasaConversion">Tasa de Conversión:</label>
+                                <input type="text" id="tasaConversion" name="tasaConversion" class="form-control" [(ngModel)]="transaccion.tasaConversion">
+                            </div>
+                            <button type="button" id="generar" class="btn btn-primary" (click)="GenerarTransaccion()">Dar de Alta la transacción</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

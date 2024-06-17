@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro y Actualización de Tickets</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card mb-4">
+            <div class="card-header text-center">
+                <h4>Generar Nuevo Ticket</h4>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="GenerarTicket()" #ticketForm="ngForm">
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio:</label>
+                        <input type="number" id="precio" [(ngModel)]="ticket.precioTicket" name="precio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoria Del Espectador:</label>
+                        <input type="text" id="categoria" [(ngModel)]="ticket.categoriaEspectador" name="categoria" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechacompra" class="form-label">Fecha De Compra:</label>
+                        <input type="text" id="fechacompra" [(ngModel)]="ticket.fechaCompra" name="fechacompra" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="espectadorid" class="form-label">ID Del Espectador:</label>
+                        <input type="text" id="espectadorid" [(ngModel)]="ticket.espectador._id" name="espectadorid" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Generar Nuevo Ticket</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Actualizar Ticket</h4>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="ActualizarTicket()" #ticketForm="ngForm">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID Del Ticket</label>
+                        <input type="text" id="id" [(ngModel)]="ticket._id" name="id" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio:</label>
+                        <input type="number" id="precio" [(ngModel)]="ticket.precioTicket" name="precio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoria Del Espectador:</label>
+                        <input type="text" id="categoria" [(ngModel)]="ticket.categoriaEspectador" name="categoria" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechacompra" class="form-label">Fecha De Compra</label>
+                        <input type="text" id="fechacompra" [(ngModel)]="ticket.fechaCompra" name="fechacompra" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="espectadorid" class="form-label">ID Del Espectador:</label>
+                        <input type="text" id="espectadorid" [(ngModel)]="ticket.espectador._id" name="espectadorid" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Editar Ticket</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Producto</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Cargar Producto</h4>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="CargarProducto()" #productoForm="ngForm">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" class="form-label">Imagen:</label>
+                        <input type="text" id="imagen" [(ngModel)]="producto.imagen" name="imagen" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio:</label>
+                        <input type="number" id="precio" [(ngModel)]="producto.precio" name="precio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="stock" class="form-label">Stock:</label>
+                        <input type="number" id="stock" [(ngModel)]="producto.stock" name="stock" class="form-control" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" id="destacado" [(ngModel)]="producto.destacado" name="destacado" class="form-check-input">
+                        <label for="destacado" class="form-check-label">Destacado</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar Producto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
