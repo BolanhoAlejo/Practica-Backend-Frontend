@@ -12,15 +12,15 @@
         <form class="mb-4">
             <div class="form-group mb-3">
                 <label for="cantidad">Ingresar Cantidad:</label>
-                <input type="text" id="cantidad" name="cantidad" class="form-control" [(ngModel)]="transaccion.cantidadOrigen">
+                <input type="text" id="cantidad" name="cantidad" class="form-control" [(ngModel)]="transaccion.cantidadOrigen" [(ngModel)]="amount">
             </div>
             <div class="form-group mb-3">
                 <label for="monedaOrigen">Ingresar De Moneda:</label>
-                <input type="text" id="monedaOrigen" name="monedaOrigen" class="form-control" [(ngModel)]="transaccion.monedaOrigen">
+                <input type="text" id="monedaOrigen" name="monedaOrigen" class="form-control" [(ngModel)]="transaccion.monedaOrigen" [(ngModel)]="from">
             </div>
             <div class="form-group mb-3">
                 <label for="monedaDestino">Ingresar a Moneda:</label>
-                <input type="text" id="monedaDestino" name="monedaDestino" class="form-control" [(ngModel)]="transaccion.monedaDestino">
+                <input type="text" id="monedaDestino" name="monedaDestino" class="form-control" [(ngModel)]="transaccion.monedaDestino" [(ngModel)]="to">
             </div>
             <button type="button" id="buscar" class="btn btn-primary" (click)="ObtenerCambio()" data-bs-toggle="modal" data-bs-target="#ModalMoneda">Validar</button>
         </form>
@@ -35,17 +35,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Cambio: {{ resultados.result }}</p>
-
+                        <p>Cambio: {{ transaccion.cantidadDestino }}</p>
+                        <p>Tasa de conversion: {{ conversion }}</p>
                         <form class="mb-4">
                             <p>Completar formulario</p>
                             <div class="form-group mb-3">
                                 <label for="email">Email:</label>
                                 <input type="text" id="email" name="email" class="form-control" [(ngModel)]="transaccion.emailCliente">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="tasaConversion">Tasa de Conversión:</label>
-                                <input type="text" id="tasaConversion" name="tasaConversion" class="form-control" [(ngModel)]="transaccion.tasaConversion">
                             </div>
                             <button type="button" id="generar" class="btn btn-primary" (click)="GenerarTransaccion()">Dar de Alta la transacción</button>
                         </form>

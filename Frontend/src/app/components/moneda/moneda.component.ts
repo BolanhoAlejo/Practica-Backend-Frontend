@@ -13,11 +13,13 @@ import { Transaccion } from '../../models/transaccion';
 })
 export class MonedaComponent {
 
-fvalue: string = "";
-ftype: string = "";
-ttype: string = "";
+from: string = "";
+to: string = "";
+amount: string = "";
 
 resultados:any = [];
+
+conversion:any = [];
 
 transaccion: Transaccion = new Transaccion();
 transacciones!: Array<Transaccion>;
@@ -25,10 +27,13 @@ transacciones!: Array<Transaccion>;
 constructor(public monedaService: MonedaService){}
 
 ObtenerCambio(){
-  this.monedaService.getMoneda(this.fvalue, this.ftype, this.ttype).subscribe(
+  this.monedaService.getMoneda(this.from, this.to, this.amount).subscribe(
     (result: any) => {
       console.log(result);
       this.resultados = result;
+      this.transaccion.cantidadDestino = this.resultados.result;
+      this.transaccion.tasaConversion = this.resultados.meta.rates.from;
+      this.conversion = this.resultados.meta.formated.from;
     },
     (error: any) => {
       console.log(error);
@@ -41,7 +46,6 @@ GenerarTransaccion(): void {
     (result: any) => {
       console.log(result);
       this.resultados = result;
-      this.transaccion.cantidadDestino = this.resultados.result;
     },
     (error: any) => {
       console.log(error);
